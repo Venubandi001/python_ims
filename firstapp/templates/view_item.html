@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>view_item</title>
+  </head>
+  <body>
+    <h1>Item Details</h1>
+    <p>Name: {{ item.name }}</p>
+    <p>Cost: {{ item.cost }}</p>
+    <P>Quantity: {{item.quantity}}</P>
+    <P>Quantity_sold: {{item.quantity_sold}}</P>
+    <P>selling_price: {{item.selling_price}}</P>
+    <P>Revenue: {{item.revenue}}</P>
+    
+    <a href="{% url 'Displaylist' %}">Back to List</a>
+  </body>
+</html>

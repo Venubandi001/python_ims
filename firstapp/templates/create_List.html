@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ItemList</title>
+  </head>
+  <body>
+    <form method="post">
+      {% csrf_token %} {{ form.non_field_errors }}
+      <div class="form-group">
+        <label for="{{ form.name.id_for_label }}">Name:</label>
+        {{ form.name }} {{ form.name.errors }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.cost.id_for_label }}">cost:</label>
+        {{ form.cost }} {{ form.cost.errors }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.selling_price.id_for_label }}">selling_price:</label>
+        {{ form.selling_price }} {{ form.selling_price.errors }}
+        {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <input type="hidden" name="{{ form.quantity.name }}" value="0" />
+      <input type="hidden" name="{{ form.quantity_sold.name }}" value="0" />
+      <input type="hidden" name="{{ form.profit_earned.name }}" value="0" />
+      <input type="hidden" name="{{ form.revenue.name }}" value="0" />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

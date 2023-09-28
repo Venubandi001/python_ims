@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,th{
+            border:1px solid;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Cost</th>
+            <th>Quantity</th>
+            <th>Quantity_Sold</th>
+            <th>Selling Price</th>
+            <th>Profit earned</th>
+            <th>Revenue</th>
+        </tr>
+        {%  for x in mydata %}
+        <tr>
+            <td>{{x.id}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.cost}}</td>
+            <td>{{x.quantity}}</td>
+            <td>{{x.quantity_sold}}</td>
+            <td>{{x.selling_price}}</td>
+            <td>{{x.profit_earned}}</td>
+            <td>{{x.revenue}}</td>
+            <td><a href="{% url 'view_item' x.id %}" style="text-decoration: none;">View</a></td>
+            <td><a href="{% url 'order_place' x.id %}" class="btn btn-primary">Order</a></td>
+            <td>Sell</td>
+            <td>Edit</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
